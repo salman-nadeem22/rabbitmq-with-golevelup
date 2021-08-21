@@ -29,6 +29,15 @@
   "projects": {
     "api": {
       "tags": []
+    },
+    "product": {
+      "tags": []
+    },
+    "public": {
+      "tags": []
+    },
+    "subscriber": {
+      "tags": []
     }
   }
 }

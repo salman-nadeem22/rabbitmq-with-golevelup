@@ -14,6 +14,7 @@ import { AppService } from './app.service';
         },
       ],
       uri: 'amqp://guest:guest@localhost:5672',
+      connectionInitOptions: { wait: false },
     }),
   ],
   controllers: [AppController],

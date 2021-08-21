@@ -1,8 +1,16 @@
+import { AmqpConnection } from '@golevelup/nestjs-rabbitmq';
 import { Injectable } from '@nestjs/common';
 
 @Injectable()
 export class AppService {
-  getData(): { message: string } {
-    return { message: 'Welcome to api!' };
+  constructor(private readonly amqpConnection: AmqpConnection) {}
+
+  async getProducts() {
+    const data = await this.amqpConnection.request({
+      exchange: 'exchange1',
+      routingKey: 'subscribe.route',
+      payload: { cmd: 'PRODUCT' },
+    });
+    return data;
   }
 }
